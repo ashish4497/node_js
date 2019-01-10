@@ -1,0 +1,5 @@
+"eslintConfig": {
+  "rules": {
+      "no-var": 0
+  }
+}
