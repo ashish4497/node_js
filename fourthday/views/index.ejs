@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div class="user_form">
+      <form method="POST" action="/users">
+        <input type="text" name="name" placeholder="Enter Nme"/>
+        <input type="number" name="age" placeholder="age"/>
+        <input type="email" name="email" placeholder="Enter email"/>
+        <input type="text" name="description" placeholder="Description"/>
+        <input type="number" name="contactNo" placeholder="Contact No"/>
+        <button>submit</button>
+      </form>
+  </body>
+</html>

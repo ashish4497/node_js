@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><Page Title></title>
+  </head>
+  <body>
+    <div class="user_list">
+      <ul>
+        <%value.forEach(function(val){%>
+          <li><a href="/users/<%= val.id %>"><%= val.name %></a></li>
+          <li><%= val.email %></li>
+          <%});%>
+      </ul>
+    </div>
+  </body>
+</html>
