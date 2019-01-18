@@ -1,0 +1,325 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background: #49455d;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header_section {
+  background: #2e2a2d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+
+.header_section h1 {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.header_section .btn-create {
+  background: #78a84c;
+  padding: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+.header_section .btn-create:hover {
+  background: #e16e72;
+}
+
+.display-info .one-card {
+  padding: 30px;
+  background: #e6eaed;
+  width: 500px;
+  padding: 40px;
+  margin: 15px;
+  border-radius: 7px;
+}
+
+.display-info h4 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.display-info h4:hover {
+  color: #f44336;
+}
+
+.display-info h5 {
+  margin-bottom: 10px;
+}
+
+.display-info p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.display-info .remove {
+  margin-right: 20px;
+}
+
+.post-Col {
+  background: #49455d;
+}
+
+.user_form {
+  text-align: center;
+  padding: 80px;
+  margin: 0 auto;
+}
+
+.user_form .comment-post {
+  background: #e6eaed;
+  width: 276px;
+  padding: 40px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+.user_form h1 {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #49455d;
+}
+
+.user_form .blog-title {
+  width: 250px;
+  border: none;
+  border-bottom: 1px solid #40383b;
+  margin-bottom: 20px;
+  background: none;
+  padding: 8px;
+  outline: none;
+}
+
+.user_form .blog-description {
+  width: 250px;
+  height: 16px;
+  font-size: 1.1rem;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #40383b;
+  margin-bottom: 20px;
+  background: none;
+  outline: none;
+  resize: none;
+}
+
+.user_form ::-webkit-input-placeholder {
+  font-size: 1.2rem;
+  padding: 0;
+  color: #c97a75;
+}
+
+.user_form :-ms-input-placeholder {
+  font-size: 1.2rem;
+  padding: 0;
+  color: #c97a75;
+}
+
+.user_form ::-ms-input-placeholder {
+  font-size: 1.2rem;
+  padding: 0;
+  color: #c97a75;
+}
+
+.user_form ::placeholder {
+  font-size: 1.2rem;
+  padding: 0;
+  color: #c97a75;
+}
+
+.user_form .post-btn {
+  height: 40px;
+  width: 120px;
+  text-transform: uppercase;
+  background: #65a568;
+  border: 3px solid #65a568;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.user_form .post-btn:hover {
+  cursor: pointer;
+}
+
+.blog-description {
+  border: 2px solid black;
+  padding: 15px;
+}
+
+.blog-description p {
+  padding: 10px;
+}
+
+.comment_section h2 {
+  padding: 8px;
+}
+
+.edit_form {
+  background: #f0a55b;
+}
+
+.button-style {
+  height: 30px;
+  width: 90px;
+  text-transform: uppercase;
+  background: #65a568;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.button-style:hover {
+  background: #c97a75;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
