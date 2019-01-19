@@ -167,18 +167,18 @@ table {
 }
 
 .display-info .one-card {
-  padding: 30px;
+  width: 625px;
+  padding: 45px;
   background: #e6eaed;
-  width: 500px;
-  padding: 40px;
-  margin: 15px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
   border-radius: 7px;
 }
 
 .display-info h4 {
   text-transform: uppercase;
   font-size: 1.3rem;
-  text-decoration: none;
   margin-bottom: 10px;
 }
 
@@ -316,10 +316,80 @@ table {
   color: white;
   font-size: 1rem;
   outline: none;
+  vertical-align: top;
 }
 
 .button-style:hover {
   background: #c97a75;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.comments {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  background: none;
+  outline: none;
+  resize: none;
+}
+
+.blog-description {
+  background: #26192a;
+}
+
+.blog-description p {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: white;
+}
+
+.login_form {
+  background: wheat;
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+  padding: 50px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.login_form h1 {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #49455d;
+}
+
+.login_form .sign-up {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.login_form .email {
+  width: 250px;
+  height: 30px;
+  outline: none;
+}
+
+.width-btn {
+  margin-top: 10px;
+  width: 250px;
+  height: 34px;
+  text-transform: capitalize;
+}
+
+.width-btn:hover {
+  color: #f44336;
+}
+
+.signUp-style {
+  margin: 20px;
+  width: 250px;
+  height: 30px;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

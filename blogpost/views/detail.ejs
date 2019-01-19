@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 </head>
 <body>
   <div class="blog-description">
@@ -10,11 +12,13 @@
     <div class="comment_section">
       <h2>Comments..</h2>
       <form method="POST" action='/detail/<%= detail.id %>/comments'>
-        <textarea col="3" rows="2" placeholder="comments" name="title"></textarea>
-        <input type="hidden" value="<%= detail.id %>" name="post"/>
-        <button> submit</button> 
+        <textarea col="3" rows="2" placeholder="comments" name="title" class="comments"></textarea>
+        <input type="hidden" value="<%= detail.id %>" name="post" autocomplete="off" />
+        <button class="cnt-btn button-style "> submit</button> 
         <% detail.comments.forEach(function(comment){ %>
           <p class="comments"><%= comment.title %></p>
+          <i class="far fa-trash-alt"></i>
+          <i class="far fa-edit"></i>
         <% }); %> 
       </form>
     </div>

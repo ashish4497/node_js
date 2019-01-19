@@ -11,7 +11,7 @@
     <form method="POST" class="comment-post" action="/edit/<%= val._id %>">
       <H1>edit comment</H1>
       <input type="text" class="blog-title" placeholder="Enter title" name="title" value="<%= val.title %>"/>
-      <textarea rows="4" cols="5" class="blog-description" name="description" value="<%= val.description %>"></textarea>
+      <textarea rows="4" cols="5" class="blog-description" name="description"><%= val.description %></textarea>
       <button class="edit button-style">add</button>
     </form>
   </div>

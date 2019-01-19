@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
   <script src="main.js"></script>
 </head>
-<body>
+<body class="detail_form">
   <div class='header_section'>
     <h1>BLOG POST</h1>
     <a href="/blog"<button class="btn-create">create</button></a>
@@ -18,9 +18,9 @@
       <div class="one-card">
         <a href="/detail/<%= blog.id %>"> <h4><%= blog.title %></h4></a>
         <p><%= blog.description %></p>
-        <h5><%= blog.date %></h5>
+        <h5><%= moment(blog.date).fromNow() %></h5>
         <a href="/blog/<%= blog.id %>"><button class="remove button-style">remove</button></a>
-        <a href="/edit/<%= blog.id %>/edit"><button class="edit button-style">edit</button></a>
+        <a href="/blog/<%= blog.id %>/edit"><button class="edit button-style">edit</button></a>
     </div>
       <% }); %> 
   </div>

@@ -10,7 +10,5 @@ var blogSchema = new Schema({
   comments:[{type:Schema.Types.ObjectId, ref:'Comment'}]
 }) 
 
-
-
 var blog = mongoose.model('blog',blogSchema);
 module.exports = blog;
