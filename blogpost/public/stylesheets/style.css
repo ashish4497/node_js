@@ -153,13 +153,47 @@ table {
   font-weight: 600;
 }
 
+.header_section .logout {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.header_section .right-anchor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 250px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 0;
+}
+
+.header_section .user-icon {
+  height: 40px;
+  width: 40px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 50%;
+  background: #65a568;
+}
+
 .header_section .btn-create {
+  border-radius: 3px;
   background: #78a84c;
   padding: 10px;
   font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   color: white;
+  border: none;
 }
 
 .header_section .btn-create:hover {
@@ -284,6 +318,7 @@ table {
   font-size: 1.2rem;
   font-weight: 500;
   outline: none;
+  border-radius: 2px;
 }
 
 .user_form .post-btn:hover {
@@ -308,6 +343,7 @@ table {
 }
 
 .button-style {
+  border-radius: 2px;
   height: 30px;
   width: 90px;
   text-transform: uppercase;
@@ -375,11 +411,25 @@ a {
   outline: none;
 }
 
+.login_form .new-register {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  text-align: right;
+  text-transform: capitalize;
+  color: #f44336;
+}
+
+.login_form .new-register:hover {
+  cursor: pointer;
+  color: #65a568;
+}
+
 .width-btn {
   margin-top: 10px;
   width: 250px;
   height: 34px;
   text-transform: capitalize;
+  border-radius: 2px;
 }
 
 .width-btn:hover {

@@ -11,7 +11,16 @@
 <body class="detail_form">
   <div class='header_section'>
     <h1>BLOG POST</h1>
-    <a href="/blog"<button class="btn-create">create</button></a>
+    <div class="right-anchor">
+      <% if(locals.user){ %>
+        <a href="/logout"><button class="btn-create">logout</button></a>
+        <a href="/blog"><button class="btn-create">create</button></a>
+        <p class="user-icon"><%= user.username[0] %></p>
+      <% } else {%>
+        <a href="/login"><button class="btn-create">login</button></a>
+      <% } %>
+    </div>
+
   </div>
   <div class="display-info">
     <% blogs.forEach(function(blog){ %>
@@ -19,8 +28,12 @@
         <a href="/detail/<%= blog.id %>"> <h4><%= blog.title %></h4></a>
         <p><%= blog.description %></p>
         <h5><%= moment(blog.date).fromNow() %></h5>
-        <a href="/blog/<%= blog.id %>"><button class="remove button-style">remove</button></a>
-        <a href="/blog/<%= blog.id %>/edit"><button class="edit button-style">edit</button></a>
+
+        <% if(locals.user){ %>
+          <a href="/blog/<%= blog.id %>"><button class="remove button-style">remove</button></a>
+          <a href="/blog/<%= blog.id %>/edit"><button class="edit button-style">edit</button></a>
+        <% } %>
+
     </div>
       <% }); %> 
   </div>

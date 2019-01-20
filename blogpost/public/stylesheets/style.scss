@@ -141,13 +141,39 @@ table {
     color: white;
     font-weight: 600;
   }
+  .logout{
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    color: white;
+    font-weight: 600;
+  }
+  .right-anchor{
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+  .user-icon{
+    height:40px;
+    width:40px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    border-radius:50%;
+    background: #65a568;
+  }
   .btn-create {
+    border-radius: 3px;
     background: #78a84c;
     padding: 10px;
     font-size: 1rem;
     text-decoration: none;
     text-transform: uppercase;
     color: white;
+    border: none;
     &:hover {
       background: #e16e72;
     }
@@ -245,6 +271,7 @@ table {
     font-size: 1.2rem;
     font-weight: 500;
     outline: none;
+    border-radius: 2px;
     &:hover {
       cursor: pointer;
     }
@@ -268,6 +295,7 @@ table {
 }
 //button
 .button-style {
+  border-radius: 2px;
   height: 30px;
   width: 90px;
   text-transform: uppercase;
@@ -337,6 +365,18 @@ a {
     height:30px;
     outline: none;
   }
+  .new-register{
+    margin-top:30px;
+    font-size:1.2rem;
+    text-align: right;
+    text-transform: capitalize;
+    color:#f44336;
+    &:hover {
+      // font-size:1.3rem;
+      cursor: pointer;
+      color:#65a568;;
+    }
+  }
 }
 // button length
 .width-btn {
@@ -344,6 +384,7 @@ a {
   width:250px;
   height:34px;
   text-transform: capitalize;
+  border-radius: 2px;
   &:hover{
     color: #f44336;
   }
