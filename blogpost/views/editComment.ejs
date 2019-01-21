@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="edit-comment">
+    <form method="POST" action="/commentEdit">
+      <textarea col="3" rows="2" placeholder="comments" name="title" class="comments" ><%= comment.title %></textarea>
+      <input type="hidden" value="<%= comment.id %>" name="post" autocomplete="off" />
+      <button class="cnt-btn button-style "> submit</button> 
+    </form>
+  </div>
+</body>
+</html>

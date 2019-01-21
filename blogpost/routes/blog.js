@@ -6,38 +6,31 @@ var comments = mongoose.model("Comment");
 var moment = require("moment");
 var user = mongoose.model("User");
 var bcrypt = require("bcrypt");
+var blogController = require("../Controllers/blog");
 
 //check for user
 var isUser = (req, res, next) => {
-  console.log(req.session.userId)
+  console.log(req.session.userId);
   let userId = req.session.userId;
   if (req.session.userId) {
     req.user = userId;
     res.locals.user = userId;
     next();
-  } else{
-    res.redirect('/login')
+  } else {
+    res.redirect("/login");
   }
 };
 
+// display the form
+router.get("/", isUser, blogController.formRender);
 
-router.get("/", isUser ,function(req, res, next) {
-  res.render("form");
-});
+// creating a new blog
+router.post("/", blogController.postCreate);
 
-router.get("/:id", function(req, res) {
-  blog.findOneAndDelete(req.params.id, (err, data) => {
-    if (err) console.log(err);
-    res.redirect("/");
-  });
-});
+//delete the blog post
+router.get("/:id", blogController.postDelete);
 
-router.get("/:id/edit", function(req, res) {
-  blog.findById(req.params.id, (err, data) => {
-    if (err) console.log(err);
-    res.render("edit", { val: data });
-    // res.redirect('/')
-  });
-});
+// edit the blog post
+router.get("/:id/edit", blogController.postEdit);
 
 module.exports = router;

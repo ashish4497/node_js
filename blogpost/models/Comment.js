@@ -5,7 +5,8 @@ let commentSchema = new Schema({
   title:String,
   post:{type:Schema.Types.ObjectId, ref:'blog'},
   content :String,
-  created :{type: Date, default: Date.now()}
+  created :{type: Date, default: Date.now()},
+  author :{type:Schema.Types.ObjectId, ref:'user'}
 });
 
 var Comment = mongoose.model('Comment',commentSchema);
