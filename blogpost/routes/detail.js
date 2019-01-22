@@ -11,7 +11,7 @@ var detailController = require('../Controllers/detail')
 router.post("/:id/comments",detailController.postComment);
 
 // particular user comment
-router.get("/:id",detailController.singleBlogComment);
+router.get("/:slug",detailController.singleBlogComment);
 
 //delete comment
 router.get("/:id/cmntdelete",detailController.deleteComment);

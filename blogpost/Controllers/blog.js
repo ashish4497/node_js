@@ -1,8 +1,7 @@
-var express = require("express");
-var router = express.Router();
+// var express = require("express");
+// var router = express.Router();
 var mongoose = require("mongoose");
 var blog = mongoose.model("blog");
-
 
 // display the form
 var formRender = function(req, res, next) {
@@ -12,6 +11,7 @@ var formRender = function(req, res, next) {
 // creating a new blog
 var postCreate = function(req, res, next) {
   var newBlog = new blog(req.body);
+  newBlog.author = req.session.userId
   newBlog.save((err) => {
     if (err) console.log(err);
     res.redirect("/");

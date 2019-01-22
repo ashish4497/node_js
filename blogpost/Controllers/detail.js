@@ -18,18 +18,17 @@ var postComment = function(req, res) {
       { new: true },
       (err, data) => {
         if (err) res.send(err);
+        res.redirect(`/detail/${data.slug}`);
         // console.log(data, "comment section data");
       }
     );
-    res.redirect(`/detail/${req.params.id}`);
-
   });
 }
 
 // particular user comment
 var singleBlogComment = function(req, res) {
   blog
-    .findOne({ _id: req.params.id })
+    .findOne({ slug: req.params.slug })
     .populate("comments")
     .exec((err, post) => {
       if (err) res.send(err);
@@ -41,6 +40,7 @@ var singleBlogComment = function(req, res) {
 var deleteComment = function(req, res){
   // console.log(comments,"comments id find")
   comments.findByIdAndDelete(req.params.id, (err,data) => {
+    // if(req.session.userId == data.author.toString())
     if(err) res.send(err);
     // console.log(data, "delete comment")
     res.redirect(`/`);
@@ -56,6 +56,7 @@ var editComment= function(req, res){
     res.render('editComment' ,{comment:data})
   })
 }
+
 module.exports = {
   postComment,
   singleBlogComment,
