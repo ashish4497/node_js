@@ -6,6 +6,7 @@ var User = require('../models/user')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.session,"session")
   res.render('index', { title: 'Express' });
 });
 
@@ -38,6 +39,7 @@ router.post('/login',
     successRedirect: '/'
     })
 );
+
 // router.post('/login', 
 //   passport.authenticate('local', { failureRedirect: '/login' }),
 //   function(req, res) {
@@ -53,4 +55,10 @@ router.get('/auth/github/callback',
     // Successful authentication, redirect home.
     res.redirect('/');
   });
+
+  //logout
+  router.get('/logout',(req,res)=>{
+    req.session.destroy();
+    res.render('logout')
+  })
 module.exports = router;

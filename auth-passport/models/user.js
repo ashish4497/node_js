@@ -3,17 +3,21 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
 var userSchema = new Schema ({
-  username : {type:String, required:true},
-  email : {type:String, required: true},
-  password : {type:String, required: true}
+  username : {type:String},
+  email : {type:String},
+  password : {type:String}
 })
 
 userSchema.pre("save",function(next){
   var user = this;
-  bcrypt.hash(user.password, 10, (err,data) => {
-    user.password = data;
-    next();
-  });
+  if(this.password){
+    bcrypt.hash(user.password, 10, (err,data) => {
+      user.password = data;
+      next();
+    });
+  } else {
+    next()
+  }
 });
 
 

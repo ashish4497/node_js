@@ -3,20 +3,9 @@
    License: none (public domain)
 */
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
+html,body,div,span,applet,
+object,iframe,
+h1,h2,h3,h4,h5,h6,p,
 blockquote,
 pre,
 a,
@@ -141,28 +130,28 @@ table {
     color: white;
     font-weight: 600;
   }
-  .logout{
+  .logout {
     text-transform: capitalize;
     font-size: 1.1rem;
     margin-left: 10px;
     color: white;
     font-weight: 600;
   }
-  .right-anchor{
+  .right-anchor {
     display: flex;
     width: 250px;
     justify-content: space-between;
     margin-left: 0;
   }
-  .user-icon{
-    height:40px;
-    width:40px;
+  .user-icon {
+    height: 40px;
+    width: 40px;
     display: grid;
     place-items: center;
     font-size: 1.2rem;
     color: white;
     text-transform: uppercase;
-    border-radius:50%;
+    border-radius: 50%;
     background: #65a568;
   }
   .btn-create {
@@ -183,7 +172,7 @@ table {
 //display-info section header
 .display-info {
   .one-card {
-    width:625px;
+    width: 625px;
     padding: 45px;
     background: rgba(230, 234, 237, 1);
     margin: 0 auto;
@@ -305,7 +294,7 @@ table {
   color: white;
   font-size: 1rem;
   outline: none;
-  vertical-align: top;  
+  vertical-align: top;
   &:hover {
     background: #c97a75;
     cursor: pointer;
@@ -316,83 +305,115 @@ a {
 }
 
 //comments section
-.comments {
-  // width: 200px;
-  font-size: 1.1rem;
-  // display: block;
-  margin-bottom: 10px;
-  background: none;
-  outline: none;
-  resize: none;
-}
-.blog-description{
-  background: #26192a;
-  
-  // text-align: center;
-    p{
-    font-size: 1.2rem;
-    text-transform: capitalize;
+.comment-section {
+  background: #a2f3a6;
+  .comments {
+    // width: 200px;
+    font-size: 1.1rem;
+    // display: block;
+    margin-bottom: 10px;
+    background: none;
+    outline: none;
+    resize: none;
+    color: #fff;
+  }
+  .blog-description {
+    background: #cc8782;
+    // text-align: center;
+    border: none;
+    // background: rgba(230, 234, 237, 1);
+    border-radius: 5px;
+    width: 545px;
+    margin: 0 auto;
+    margin-top: 54px;
+    // height: 500px;
+    p {
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      color: rgba(230, 234, 237, 1);
+    }
+    h1 {
+      font-size: 1.4rem;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      color: #49455d;
+      text-align: center;
+    }
+  }
+  .comment-detail {
+    display: inline-block;
+    padding: 20px;
     color: white;
+    font-size: 1.2rem;
+    width: 500px;
+    text-transform: capitalize;
+  }
+  .far {
+    display: inline-block;
+    color: #65a568;
+    font-size: 1.2rem;
+    &:hover {
+      color: #f44336;
+    }
   }
 }
 
 //signUp form
-.login_form{
+.login_form {
   background: wheat;
   display: block;
   margin: 0 auto;
   width: 350px;
   padding: 50px;
   text-align: center;
-  margin-top:40px;
+  margin-top: 40px;
   border-radius: 10px;
   h1 {
     font-size: 1.2rem;
     text-transform: capitalize;
     margin-bottom: 20px;
     color: #49455d;
-    // border-bottom: 1px solid #49455d;
-    // text-decoration-line: underline;
+  }
+  .sign-up {
+    padding: 20px;
+    margin: 0 auto;
+  }
 
-  }
-  .sign-up{
-  padding: 20px;
-  margin:0 auto;
-  }
- 
-  .email{
-    width:250px;
-    height:30px;
+  .email {
+    width: 250px;
+    height: 30px;
     outline: none;
   }
-  .new-register{
-    margin-top:30px;
-    font-size:1.2rem;
+  .new-register {
+    margin-top: 30px;
+    font-size: 1.2rem;
     text-align: right;
     text-transform: capitalize;
-    color:#f44336;
+    color: #f44336;
     &:hover {
       // font-size:1.3rem;
       cursor: pointer;
-      color:#65a568;;
+      color: #65a568;
     }
   }
 }
+
 // button length
 .width-btn {
-  margin-top:10px;
-  width:250px;
-  height:34px;
+  margin-top: 10px;
+  width: 250px;
+  height: 34px;
   text-transform: capitalize;
   border-radius: 2px;
-  &:hover{
+  &:hover {
     color: #f44336;
   }
 }
+
 //signUp inputs
-.signUp-style{
+.signUp-style {
   margin: 20px;
-  width:250px;
-  height:30px;
-  outline:none; 
+  width: 250px;
+  height: 30px;
+  outline: none;
 }

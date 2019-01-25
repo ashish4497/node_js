@@ -57,6 +57,18 @@ var editComment= function(req, res){
   })
 }
 
+//edit
+var renderComment = function(err, res){
+  // var newComment 
+
+  console.log(res ,"display edit information")
+  comments.findById(req.params.id,(err,data) => {
+    if(err) console.log(err)
+    res.render('editComment',{edit : data})
+  })
+}
+
+
 module.exports = {
   postComment,
   singleBlogComment,

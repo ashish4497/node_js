@@ -32,7 +32,7 @@ router.get("/:id", blogController.postDelete);
 
 // edit the blog post
 router.get("/:id/edit", blogController.postEdit);
-router.post("/:id")
+// router.post("/:id")
 
 
 module.exports = router;

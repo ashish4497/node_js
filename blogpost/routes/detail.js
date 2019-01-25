@@ -18,4 +18,7 @@ router.get("/:id/cmntdelete",detailController.deleteComment);
 module.exports = router;
 
 // edit the comment
-router.get("/:id/commentEdit",detailController.editComment)
+router.get("/:id/commentEdit",detailController.editComment);
+
+
+// router.post("/:id",detailController.renderComment);

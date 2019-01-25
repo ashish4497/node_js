@@ -39,9 +39,20 @@ passport.use(new GitHubStrategy({
   callbackURL: "http://localhost:3000/auth/github/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
-  console.log(profile)
+  // console.log(profile)
   User.findOne({ email: profile.emails[0].value }, function (err, user) {
-    return cb(err, user);
+    if(!user){
+      var newUser = new User({
+        username:profile.username,
+        email:profile.emails[0].value
+      })
+      newUser.save((err)=> {
+        if(err) console.log(err)
+        return cb(err, user);
+      })
+    }else{
+      return cb(err, user);
+    }
   });
 }
 ));

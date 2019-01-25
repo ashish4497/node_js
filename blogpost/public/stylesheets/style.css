@@ -2,20 +2,9 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
+html, body, div, span, applet,
+object, iframe,
+h1, h2, h3, h4, h5, h6, p,
 blockquote,
 pre,
 a,
@@ -364,22 +353,59 @@ a {
   text-decoration: none;
 }
 
-.comments {
+.comment-section {
+  background: #a2f3a6;
+}
+
+.comment-section .comments {
   font-size: 1.1rem;
   margin-bottom: 10px;
   background: none;
   outline: none;
   resize: none;
+  color: #fff;
 }
 
-.blog-description {
-  background: #26192a;
+.comment-section .blog-description {
+  background: #cc8782;
+  border: none;
+  border-radius: 5px;
+  width: 545px;
+  margin: 0 auto;
+  margin-top: 54px;
 }
 
-.blog-description p {
+.comment-section .blog-description p {
   font-size: 1.2rem;
   text-transform: capitalize;
+  color: #e6eaed;
+}
+
+.comment-section .blog-description h1 {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #49455d;
+  text-align: center;
+}
+
+.comment-section .comment-detail {
+  display: inline-block;
+  padding: 20px;
   color: white;
+  font-size: 1.2rem;
+  width: 500px;
+  text-transform: capitalize;
+}
+
+.comment-section .far {
+  display: inline-block;
+  color: #65a568;
+  font-size: 1.2rem;
+}
+
+.comment-section .far:hover {
+  color: #f44336;
 }
 
 .login_form {
