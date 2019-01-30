@@ -20,7 +20,7 @@ var postCreate = function(req, res, next) {
 
 //delete the blog post
 var postDelete = function(req, res) {
-  blog.findOneAndDelete(req.params.id, (err, data) => {
+  blog.findByIdAndDelete(req.params.id, (err, data) => {
     if (err) console.log(err);
     res.redirect("/");
   });

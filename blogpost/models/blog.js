@@ -5,7 +5,7 @@ var slug = require('slug');
 var blogSchema = new Schema({
   title : {type:String },
   description : {type:String},
-  // likes : {type:Number},
+  likes :[{type:Schema.Types.ObjectId, ref: 'User'}],
   tag:[String],
   date:{type: Date, default: Date.now()},
   comments:[{type:Schema.Types.ObjectId, ref:'Comment'}],

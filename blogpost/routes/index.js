@@ -29,7 +29,7 @@ router.get("/login", function(req, res) {
 router.post("/login", function(req, res) {
   var { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
-    console.log(err, user);
+    // console.log(err, user);
     if (err) res.send(err);
     if (!user) res.send("not match");
     if (!bcrypt.compareSync(password, user.password)) {

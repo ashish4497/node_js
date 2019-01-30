@@ -6,20 +6,25 @@
 </head>
 <body class="comment-section">
   <div class="blog-description">
-      <h1>detail section</h1>
+    <h1>detail section</h1>
     <p><%= detail.description%></p>
-     <p><%= detail.title %></p>
+    <p><%= detail.title %></p>
+    <a href="/detail/<%=locals.user%>/likes/<%= detail.id %>"><i class="far fa-thumbs-up"></i><%=detail.likes.length%></a>
     <div class="comment_section">
       <!-- <h2>Comments..</h2> -->
       <form method="POST" action='/detail/<%= detail.id %>/comments'>
         <textarea col="3" rows="2" placeholder="comments" name="title" class="comments"></textarea>
         <input type="hidden" value="<%= detail.id %>" name="post" autocomplete="off" />
         <button class="cnt-btn button-style "> submit</button> 
+        
         <% detail.comments.forEach(function(comment){ %>
           <div class="comment-detail"
-            <p class="comments"><%= comment.title %></p>
-            <a href="/detail/<%= comment._id %>/cmntdelete"><i class="far fa-trash-alt"></i></a>
-            <a href="/detail/<%= comment.id %>/CommentEdit"><i class="far fa-edit"></i></a>
+          <p class="comments"><%= comment.title %><%= " "  +user.username %></p>
+            <p></p>
+          <% if(locals.user.id==comment.author){ %>
+            <a href="/detail/<%= comment._id %>/cmntdelete/<%=detail.slug %>"><i class="far fa-trash-alt"></i></a>
+            <!-- <a href="/detail/<%= comment.id %>/CommentEdit/<%= detail.slug%>"><i class="far fa-edit"></i></a> -->
+            <% } %>
           </div>
         <% });%> 
       </form>
