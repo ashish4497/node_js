@@ -32,10 +32,13 @@ var singleBlogComment = function(req, res) {
   // console.log(req.session, 'got the session')
   blog
     .findOne({ slug: req.params.slug })
-    .populate("comments")
+    .populate({
+      path : "comments",
+      populate : {path: "author", model : 'User'}
+    })
     .exec((err, post) => {
       if (err) res.send(err);
-      User.findById(res.locals.user, (err, user) => {
+      User.findById(res.locals.user,(err, user) => {
         res.render("detail", { detail: post, user:user });
       })
     });

@@ -1,0 +1,23 @@
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"type="text/css"media="screen"href="./stylesheets/style.css"
+/>  
+</head>
+  <body class="detail_form">
+<header>
+    <div class="header_section">
+        <h1>BLOG POST</h1>
+        <div class="right-anchor">
+          <% if(locals.user){ %>
+          <a href="/logout"><button class="btn-create">logout</button></a>
+          <a href="/blog"><button class="btn-create">create</button></a>
+          <p class="user-icon"><%= user.username[0] %></p>
+          <% } else {%>
+          <a href="/login"><button class="btn-create">login</button></a> <% } %>
+        </div>
+      </div>
+</header>

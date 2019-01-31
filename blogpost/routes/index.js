@@ -55,11 +55,18 @@ router.post("/register", function(req, res) {
 /* GET home page. */
 
 router.get("/", isUser, function(req, res) {
-  blog.find({}, (err, data) => {
+  blog.find({}).populate('author').exec((err, data) => {
     if (err) console.log(err);
+    console.log(data[0])
     res.render("header", { blogs: data, moment: moment });
-  });
-});
+  })
+  
+})
+    
+//     , (err, data) => {
+
+//   });
+// });
 
 router.post("/edit/:id", function(req, res) {
   blog.findByIdAndUpdate(

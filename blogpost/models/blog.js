@@ -10,7 +10,7 @@ var blogSchema = new Schema({
   date:{type: Date, default: Date.now()},
   comments:[{type:Schema.Types.ObjectId, ref:'Comment'}],
   slug : String,
-  author : {type:Schema.Types.ObjectId, ref:'blog'}
+  author : {type:Schema.Types.ObjectId, ref:'User'}
 }) 
 
 // apply prehook slug middleware
