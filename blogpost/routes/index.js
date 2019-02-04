@@ -5,9 +5,29 @@ var blog = mongoose.model("blog");
 var moment = require("moment");
 var User = mongoose.model("User");
 var bcrypt = require("bcrypt");
+var passport = require('passport');
 
+//github login section
+// router.get('/auth/github',
+//   passport.authenticate('github'));
+// router.get('/auth/github/callback', 
+//   passport.authenticate('github', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect("/");
+//   });
+// router.get('/auth/github',
+//   passport.authenticate('github'));
+
+// router.get('/auth/github/callback', 
+//   passport.authenticate('github', { failureRedirect: '/login' }),
+//   function(req, res) {  
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
+  
 var isUser = (req, res, next) => {
-  console.log(req.session.userId);
+  // console.log(req.session.userId);
   let userId = req.session.userId;
   if (req.session.userId) {
     User.findById(userId, (err, user) => {
@@ -55,18 +75,13 @@ router.post("/register", function(req, res) {
 /* GET home page. */
 
 router.get("/", isUser, function(req, res) {
+  console.log(req.session,"session")
   blog.find({}).populate('author').exec((err, data) => {
     if (err) console.log(err);
     console.log(data[0])
     res.render("header", { blogs: data, moment: moment });
   })
-  
 })
-    
-//     , (err, data) => {
-
-//   });
-// });
 
 router.post("/edit/:id", function(req, res) {
   blog.findByIdAndUpdate(

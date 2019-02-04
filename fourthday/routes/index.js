@@ -6,10 +6,8 @@ console.log(baseDir)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'User From' });
+  res.render('index', { title: 'User Form' });
 
 });
-
-
 
 module.exports = router;

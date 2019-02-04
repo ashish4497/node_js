@@ -7,12 +7,14 @@ var blog = require("./models/blog");
 var session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
+var passport = require("passport");
 mongoose.connect(
   process.env.blogpost,
   { useNewUrlParser: true }
 );
 
 require("./models/user");
+require("./config/passport");
 require("./models/Comment");
 require("./models/blog");
 
@@ -40,6 +42,8 @@ app.use(
     // cookies: { secure: false }
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
   req.session.name = "check";

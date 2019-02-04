@@ -1,0 +1,29 @@
+- create a db called 'learn'
+- create a collection called 'dog' in 'learn' db
+- create a document with data - {name: 'pochi', color: 'black'}
+- find the document just created
+- create another document with data - {name: 'poga', color: 'white', age: 1, address: 'AltCampus'}
+- create atleast 5 more documents
+
+
+
+- db.users.find({gender: 'm',
+weight: {$gt: 70}})
+
+//or (not quite the same thing, but for
+//demonstration purposes)
+- db.users.find({gender: {$ne: 'f'},
+weight: {$gte: 71}})
+
+- db.users.find({gender: 'f',
+$or: [{loves: 'apple'},
+{weight: {$lt: 50}}]})
+
+- db.users.find({
+vampires: {$exists: false}})
+
+- db.users.find({
+loves: {$in:['apple','orange']}})
+
+- db.users.aggregate([{$group:{_id:'$gender',
+total: {$sum:1}}}])

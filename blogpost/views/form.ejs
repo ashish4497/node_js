@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
+<!-- <head>
   <title>user form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
-  <script src="main.js"></script>
-</head>
-<body class="post-Col">
-    <!-- <% include partials/topHeader %> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+  <script src="main.js"></script> -->
+<!-- </head> -->
+  <% include partials/topHeader %>
+<section class="post-Col">
   <div class="user_form">
     <form class="comment-post" method="POST" action="/blog">
-      <H1>post comment</H1>
+      <H1>write a post </H1>
       <input type="text" class="blog-title" placeholder="Enter title" name="title" autocomplete="off"/>
       <textarea rows="4" cols="5" class="blog-description" name="description" placeholder="Description"></textarea>
-      <button class="post-btn">add</button>
+      <button class="post-btn">ready to publish?</button>
     </form>
   </div>
+  </section>
 </body>
 </html>

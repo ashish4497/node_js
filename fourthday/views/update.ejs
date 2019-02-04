@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>update form</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="user_form">
+      <form method="POST" action="/users/<%= val._id%>/edit">
+        <input type="text" name="name" placeholder="Enter Nme" value="<%= val.name%>"/>
+        <input type="number" name="age" placeholder="age"  value="<%= val.age%>"/>
+        <input type="email" name="email" placeholder="Enter email"  value="<%= val.email%>"/>
+        <input type="text" name="description" placeholder="Description"  value="<%= val.description%>"/>
+        <input type="number" name="contactNo" placeholder="Contact No"  value="<%= val.contactNo%>"/>
+        <button>submit</button>
+      </form>
+  </body>
+</html>

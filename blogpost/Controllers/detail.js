@@ -48,7 +48,7 @@ var singleBlogComment = function(req, res) {
 var deleteComment = function(req, res){
   // console.log(comments,"comments id find")
   comments.findByIdAndDelete(req.params.id, (err,data) => {
-    console.log(req.params.Id)
+    // console.log(req.params.Id)
     // if(req.session.userId == data.author.toString())
     if(err) res.send(err);
     // console.log(data, "delete comment")
@@ -62,7 +62,7 @@ var deleteComment = function(req, res){
 var editComment= function(req, res){
   comments.findById(req.params.id,(err,data)=>{
     if(err) res.send(err)
-    console.log(data, "edit form info");
+    // console.log(data, "edit form info");
     res.render('editComment' ,{comment:data})
   })
 }
@@ -84,7 +84,7 @@ var likeButton = function(req, res) {
     {new:true},
     (err, data) =>{
       if(err) console.log(err)
-      console.log(data, "blog data found")
+      // console.log(data, "blog data found")
       res.redirect(`/detail/${data.slug}`)
     }
   )

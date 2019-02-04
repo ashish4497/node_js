@@ -37,7 +37,7 @@ app.set('view engine','ejs');
 app.get('/', (req,res) => {
   res.cookie("key","value");
   console.log(req.cookies);
-  res.render('index.ejs');
+  res.render('indexx.ejs');
 })
 
 

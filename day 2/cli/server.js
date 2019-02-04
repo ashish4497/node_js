@@ -14,7 +14,7 @@ httpServer.on('request', (req, res) => {
 });
 
 server.init = () => {
-	httpServer.listen(4000, () => {
+	httpServer.listen(8000, () => {
 		console.log("Server listening on port 8000");
 	});
 }

@@ -105,6 +105,11 @@ a{
 .intro-about {
 	font-size:20px;
 	padding : 1.5rem;
+	font-size: 21px;
+	padding: 1.5rem;
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
 }
 /*=====================
 	projects

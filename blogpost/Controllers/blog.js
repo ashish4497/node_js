@@ -2,10 +2,15 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 var blog = mongoose.model("blog");
+var User = mongoose.model("User");
 
 // display the form
-var formRender = function(req, res, next) {
-  res.render("form");
+var formRender = function(req,res) {
+  User.findById(res.locals.user,(err,data)=>{
+    if(err) res.send(err)
+    // console.log(data,"user info data")
+    res.render("form",{user:data});
+  })
 };
 
 // creating a new blog

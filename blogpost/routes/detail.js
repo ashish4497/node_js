@@ -8,7 +8,7 @@ var detailController = require('../Controllers/detail')
 
 //check for user
 var isUser = (req, res, next) => {
-  console.log(req.session.userId);
+  // console.log(req.session.userId);
   let userId = req.session.userId;
   if (req.session.userId) {
     req.user = userId;

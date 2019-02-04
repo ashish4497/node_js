@@ -1,0 +1,146 @@
+- MongoDB
+  - NoSQL 
+
+- Drivers
+
+- Mongo shell // Use mongo to start shell 
+
+- server // mongod - Initiates server on port 27017
+
+- Properties
+  - have databases
+    - can have collections
+      - can have documents
+        - can have fields
+
+  - Indexes // For improved lookup and sorting
+  - Cursor
+== Shell ==
+  - db.version(), db.stats(), db.help()
+  - show dbs, collections
+  - use
+  - db.getCollectionNames()
+  - db.COLLECTION_NAME.count()
+
+  - db.COLLECTION_NAME.insert({name: '', description: ''})
+    - db.COLLECTION_NAME.insertOne({})
+    - db.COLLECTION_NAME.insertMany([{}, {}])
+
+  - db.COLLECTION_NAME.find()
+    - selectors
+      
+      - $in // It retrieves documents where status array contains 'A' or 'D'(includes 1 or more from array)
+        - db.COLLECTION_NAME.find({status: { $in: ['A', 'D'] }}); // 
+      
+      - $gt // Comparison Operator
+        - db.COLLECTION_NAME.find({gender: 'm', weight: {$gt: 700}}) // $gt, $lt, $lte, $gte, $ne, $exists
+
+      - $or // OR operator (either status A or less qty less than 30) 
+        - db.COLLECTION_MAME.find({$or: [{ status: 'A' }, { qty: { $lt: 30 } }]});
+
+      - Specify AND as well as OR Conditions(where the status equals "A" and either qty is less than ($lt) 30 or item starts with the character p)
+        - db.COLLECTION_NAME.find({status: 'A',
+            $or: [{ qty: { $lt: 30 } }, { item: { $regex: '^p' } }]
+          });
+
+      - Querying Array of Tags(example) and marks
+        // Exact Match with order
+          - find({tags: ['red', 'blank']});
+
+        // find an array that contains both the elements "red" and "blank", without regard to order or other elements in the array,  
+          - find({tags: { $all: ['red', 'blank'] }});
+
+        // All matched collection
+          - find({ tags: 'red' })
+          - find({ marks: {$gt: 24} }) // Marks array of Numbers
+
+        // one element can satisfy the greater than 15 condition and another element can satisfy the less than 20 condition, or a single element can satisfy both
+           - find({ marks: { $gt: 15, $lt: 20 } });
+
+        // Use $elemMatch operator to specify multiple criteria on the elements of an array such that at least one array element satisfies all the specified criteria.
+          - find({ marks : { $elemMatch: { $gt: 22, $lt: 30 } } });
+
+        // query conditions for an element at a particular index or position of the array. 
+          - find({ 'marks.1': { $gt: 25 } });
+
+        // Use the $size operator to query for arrays by number of elements.
+          - find({ marks: { $size: 3 }})
+
+
+      Projection(returned fields)
+
+        // Returns along with _id
+          - find({ status: 'A' })
+            .project({ item: 1, status: 1 });
+
+        // Exclude _id
+          - find({ status: 'A' })
+            .project({ item: 1, status: 1, _id: 0 });
+
+        // Return All But the Excluded Fields
+          - find({ status: 'A' })
+            .project({ item: 0, status: 0 });
+
+        Equality filter
+
+          // The { item : null } query matches documents that either contain the item field whose value is null or that do not contain the item field.
+            - find({ item: null });
+          // The { item : { $exists: false } } query matches documents that do not contain the item field:
+            - find({ item: {$exists: false}}) 
+
+  - db.COLLECTION_NAME.remove({})
+    - fields, _id ObjectId
+  - db.COLLECTION_NAME.getIndexes()
+    
+  - db.COLLECTION_NAME.update({}, {}) - two params, 
+    - $set is important
+    - third param, 
+      - {upsert:true}, An upsert updates the document if found or inserts it if not,
+      - {multi:true}
+
+    - $inc // Field Update Operator 
+      db.products.update(
+        { sku: "abc123" },
+        { $inc: { quantity: -2, "metrics.orders": 1 } }
+      )
+
+    - $push // Array Operator
+      db.students.update(
+        { _id: 1 },
+        { $push: { scores: 89 } } // pushes 89 to scores array
+        { $push: { scores: { $each: [ 90, 92, 85 ] } } } // append multiple values to the scores.
+      )
+    - $pop // Array Operator
+      - db.students.update( { _id: 1 }, { $pop: { scores: -1 } } ) // remove first element from scores array.
+      - db.students.update( { _id: 1 }, { $pop: { scores: 1 } } ) // remove first from scores.
+    
+
+  == Cursors ===
+    - db.COLLECTION_NAME.find({}, {name: 1});
+    - find returns a cursor whose execution is delayed until needed
+    - db.COLLECTION_NAME.find().sort({weight: -1})
+      - .limit(10) // returns first 10 results
+      - .skip(10) // Skips first 10 docs 
+      - .count // counts number of docs returned
+
+  - Modelling data 
+    - refrences
+    - arrays as first class citizens
+    - embedded docs and dot notation 
+      - db.users.find({'family.mother': 'SomeName'})
+    - Normalisation vs Denormalisation
+    - Embedding vs Joining(Manual references)
+
+  - Full text search
+    - db.stores.createIndex( { name: "text", description: "text" } ) // creates Index
+    - db.stores.find( { $text: { $search: "java coffee shop" } } ) // Search for document
+  - Transactions
+    - findAndModify, 
+    - Two phase commit - https://docs.mongodb.com/manual/core/transactions/
+
+  - GeoSpatial
+
+  - Aggregation framework
+    - Group by
+    - db.COLLECTION_NAME.aggregate([{$group:{_id:'$gender', total: {$sum:1}}}])
+

@@ -7,7 +7,10 @@ var mongoose = require('mongoose');
 // var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt');
 var GitHubStrategy = require('passport-github').Strategy;
-
+var jwt = require('jsonwebtoken');
+jwt.sign({
+  data: 'foobar'
+}, 'secret', { expiresIn: '1h' });
 
 mongoose.connect('mongodb://localhost:27017/passport', {useNewUrlParser: true}, (err)=>console.log("connected to mongodb"));
 
