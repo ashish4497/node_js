@@ -10,7 +10,7 @@ var User = mongoose.model("User");
 var postComment = function(req, res) {
   // console.log(req.session,"comment")
   var newComment = new comments(req.body);
-  newComment.author =req.session.userId
+  newComment.author =req.session.userId || req.session.passport.user;
 
   newComment.save((err, comment) => {
     if (err) console.log(err);

@@ -8,15 +8,12 @@ var session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
 var passport = require("passport");
-mongoose.connect(
-  process.env.blogpost,
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
 require("./models/user");
-require("./config/passport");
 require("./models/Comment");
 require("./models/blog");
+require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -45,11 +42,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  req.session.name = "check";
-  next();
-});
+
 app.use(express.static(path.join(__dirname, "public")));
+
+
 
 app.use("/", indexRouter);
 app.use("/blog", blogRouter);

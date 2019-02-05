@@ -7,10 +7,14 @@
 <body class="comment-section">
     <% include partials/topHeader %>
   <div class="blog-description">
-    <h1>detail section</h1>
-    <p><%= detail.description%></p>
+    <!-- <h1>detail section</h1> -->
     <p><%= detail.title %></p>
-    <a href="/detail/<%=locals.user.id%>/likes/<%= detail.id%>"><i class="far fa-thumbs-up"></i><%=detail.likes.length%></a>
+    <p><%= detail.description%></p>
+    <% if(locals.user){ %>
+      <a href="/detail/<%=locals.user.id%>/likes/<%= detail.id%>"><i class="far fa-thumbs-up"></i><%=detail.likes.length%></a>
+      <% } else { %>
+        <a href=""><i class="far fa-thumbs-up"></i><%=detail.likes.length%></a>
+      <% } %>
     <div class="comment_section">
       <!-- <h2>Comments..</h2> -->
       <form method="POST" action='/detail/<%= detail.id %>/comments'>

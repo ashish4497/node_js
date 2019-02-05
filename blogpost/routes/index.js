@@ -7,32 +7,16 @@ var User = mongoose.model("User");
 var bcrypt = require("bcrypt");
 var passport = require('passport');
 
-//github login section
-// router.get('/auth/github',
-//   passport.authenticate('github'));
-// router.get('/auth/github/callback', 
-//   passport.authenticate('github', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect("/");
-//   });
-// router.get('/auth/github',
-//   passport.authenticate('github'));
-
-// router.get('/auth/github/callback', 
-//   passport.authenticate('github', { failureRedirect: '/login' }),
-//   function(req, res) {  
-//     // Successful authentication, redirect home.
-//     res.redirect('/');
-//   });
-  
 var isUser = (req, res, next) => {
-  // console.log(req.session.userId);
-  let userId = req.session.userId;
-  if (req.session.userId) {
+  // console.log("================================")
+  // console.log(req.session,"session")
+  // console.log(req.user,"check the user detail")
+  if (req.session.userId || req.isAuthenticated()) {
+    let userId =req.session .userId ||  req.session.passport.user;
     User.findById(userId, (err, user) => {
       req.user = user;
       res.locals.user = user;
+      // console.log(res.locals,"local")
       next();
     });
   } else {
@@ -41,13 +25,25 @@ var isUser = (req, res, next) => {
   }
 };
 
+//github login section
+router.get('/auth/github',
+  passport.authenticate('github'));
+
+router.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    // console.log('github auth success')
+    res.redirect("/");
+  });
+
 //login
 router.get("/login", function(req, res) {
   res.render("login");
 });
 
 router.post("/login", function(req, res) {
-  var { email, password } = req.body;
+  var { email, password} = req.body;
   User.findOne({ email: email }, (err, user) => {
     // console.log(err, user);
     if (err) res.send(err);
@@ -74,11 +70,12 @@ router.post("/register", function(req, res) {
 
 /* GET home page. */
 
-router.get("/", isUser, function(req, res) {
-  console.log(req.session,"session")
+router.get("/",isUser, function(req, res) {
+
+  // console.log(req.session,"session")
   blog.find({}).populate('author').exec((err, data) => {
     if (err) console.log(err);
-    console.log(data[0])
+    // console.log("ydrrsdfghjgfds",data,"data in header")
     res.render("header", { blogs: data, moment: moment });
   })
 })

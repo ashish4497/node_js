@@ -368,11 +368,13 @@ a {
 
 .comment-section .blog-description {
   background: #cc8782;
+  text-align: left;
   border: none;
   border-radius: 5px;
-  width: 545px;
   margin: 0 auto;
-  margin-top: 54px;
+  margin-top: 50px;
+  width: 90%;
+  padding: 40px;
 }
 
 .comment-section .blog-description p {
@@ -437,17 +439,33 @@ a {
   outline: none;
 }
 
-.login_form .new-register {
+.login_form .login-link li {
+  display: inline-block;
   margin-top: 30px;
+}
+
+.login_form .login-link p {
   font-size: 1.2rem;
   text-align: right;
   text-transform: capitalize;
   color: #f44336;
+  font-size: 16px;
 }
 
-.login_form .new-register:hover {
+.login_form .login-link p:hover {
+  font-size: 16.2px;
   cursor: pointer;
   color: #65a568;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.login_form .login-link .new-regis {
+  margin-right: 100px;
+}
+
+.login_form .login-link .git-hub {
+  margin-right: 0px;
 }
 
 .width-btn {

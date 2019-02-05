@@ -323,14 +323,13 @@ a {
   }
   .blog-description {
     background: #cc8782;
-    // text-align: center;
+    text-align:left;
     border: none;
-    // background: rgba(230, 234, 237, 1);
     border-radius: 5px;
-    width: 545px;
     margin: 0 auto;
-    margin-top: 54px;
-    // height: 500px;
+    margin-top: 50px;
+    width:90%;
+    padding:40px;
     p {
       font-size: 1.2rem;
       text-transform: capitalize;
@@ -388,16 +387,29 @@ a {
     height: 30px;
     outline: none;
   }
-  .new-register {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    text-align: right;
-    text-transform: capitalize;
-    color: #f44336;
-    &:hover {
-      // font-size:1.3rem;
-      cursor: pointer;
-      color: #65a568;
+  .login-link{
+    li{
+      display: inline-block;
+      margin-top: 30px;
+    }
+    p {
+      font-size: 1.2rem;
+      text-align: right;
+      text-transform: capitalize;
+      color: #f44336;
+      font-size: 16px;
+      &:hover {
+        font-size:16.2px;
+        cursor: pointer;
+        color:#65a568;
+        text-decoration-line: underline;
+      }
+    }
+    .new-regis{
+      margin-right:100px;
+    }
+    .git-hub{
+      margin-right:0px;
     }
   }
 }

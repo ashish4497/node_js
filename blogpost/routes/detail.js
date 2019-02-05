@@ -4,19 +4,34 @@ var mongoose = require("mongoose");
 var blog = mongoose.model("blog");
 var comments = mongoose.model("Comment");
 var detailController = require('../Controllers/detail')
+var mongoose = require("mongoose");
+var User = mongoose.model("User");
 
 
 //check for user
+// var isUser = (req, res, next) => {
+//   // console.log(req.session.userId);
+//   let userId = req.session.userId;
+//   if (req.session.userId) {
+//     req.user = userId;
+//     // console.log(req.user ,"check userId")
+//     res.locals.user = userId;
+//     next();
+//   } else {
+//     res.redirect("/login");
+//   }
+// };
 var isUser = (req, res, next) => {
-  // console.log(req.session.userId);
-  let userId = req.session.userId;
-  if (req.session.userId) {
-    req.user = userId;
-    // console.log(req.user ,"check userId")
-    res.locals.user = userId;
-    next();
+  if (req.session.userId || req.isAuthenticated()) {
+    let userId =req.session .userId ||  req.session.passport.user;
+    User.findById(userId, (err, user) => {
+      req.user = user;
+      res.locals.user = user;
+      next();
+    });
   } else {
-    res.redirect("/login");
+    // res.redirect('form')
+    next();
   }
 };
 
