@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <% include partials/topHeader %>
+    <% include partials/topHeader %>
     <div class="display-info">
       <% blogs.forEach(function(blog){ %>
       <div class="one-card">
@@ -12,8 +12,10 @@
         </p>
         
         <p><i class="fab fa-gratipay"></i><%= blog.likes.length %></p>
-        <h5><%= moment(blog.date).fromNow() %> </h5>
-        <p>Author:- <%=blog.author.username %></p>
+        <div class="h-info">
+            <h5><%= moment(blog.date).fromNow() %> </h5>
+            <p>Author:- <%=blog.author.username %></p>
+        </div>
         <% if(locals.user){ %>
         <% if(locals.user.id==blog.author.id){ %>
           <a href="/blog/<%= blog.id %>">

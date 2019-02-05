@@ -117,6 +117,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 ///header section
 .header_section {
   background: #2e2a2d;
@@ -172,7 +173,7 @@ table {
 //display-info section header
 .display-info {
   .one-card {
-    width: 625px;
+    width:80%;
     padding: 45px;
     background: rgba(230, 234, 237, 1);
     margin: 0 auto;
@@ -181,12 +182,9 @@ table {
     border-radius: 7px;
   }
   h4 {
-    text-transform: uppercase;
+    text-transform:capitalize;
     font-size: 1.3rem;
     margin-bottom: 10px;
-    &:hover {
-      color: #f44336;
-    }
   }
   h5 {
     margin-bottom: 10px;
@@ -197,7 +195,8 @@ table {
     text-transform: capitalize;
   }
   .remove {
-    margin-right: 20px;
+    margin-left: 20px;
+    float: right;
   }
 }
 
@@ -288,6 +287,7 @@ table {
 }
 //button
 .button-style {
+  float: right;
   border-radius: 2px;
   height: 30px;
   width: 90px;
@@ -358,11 +358,11 @@ a {
     &:hover {
       color: #f44336;
     }
-  }
+  } 
 }
-
 //signUp form
 .login_form {
+  height: 300px;
   background: wheat;
   display: block;
   margin: 0 auto;
@@ -374,7 +374,7 @@ a {
   h1 {
     font-size: 1.2rem;
     text-transform: capitalize;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     color: #49455d;
   }
   .sign-up {
@@ -416,11 +416,12 @@ a {
 
 // button length
 .width-btn {
-  margin-top: 10px;
-  width: 250px;
+  margin-top: 12px;
+  width: 252px;
   height: 34px;
   text-transform: capitalize;
   border-radius: 2px;
+  margin-right: 30px;
   &:hover {
     color: #f44336;
   }

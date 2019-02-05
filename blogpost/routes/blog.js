@@ -29,7 +29,7 @@ router.post("/",isUser, blogController.postCreate);
 router.get("/:id", blogController.postDelete);
 
 // edit the blog post
-router.get("/:id/edit", blogController.postEdit);
+router.get("/:id/edit",isUser, blogController.postEdit);
 // router.post("/:id")
 
 module.exports = router;
