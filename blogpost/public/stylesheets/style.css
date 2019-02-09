@@ -154,7 +154,6 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 250px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -162,6 +161,7 @@ table {
 }
 
 .header_section .user-icon {
+  margin-left: 20px;
   height: 40px;
   width: 40px;
   display: -ms-grid;
@@ -175,6 +175,7 @@ table {
 }
 
 .header_section .btn-create {
+  margin-left: 20px;
   border-radius: 3px;
   background: #78a84c;
   padding: 10px;
@@ -218,6 +219,11 @@ table {
 .display-info .remove {
   margin-left: 20px;
   float: right;
+}
+
+.fab {
+  font-size: 20px;
+  color: #f44336;
 }
 
 .post-Col {

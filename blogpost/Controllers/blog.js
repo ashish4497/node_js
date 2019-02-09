@@ -15,7 +15,7 @@ var formRender = function(req,res) {
 
 // creating a new blog
 var postCreate = function(req, res, next) {
-  console.log("++++++++++++++++++++++",req.session,"++++++++++++++++++++++++++")
+  // console.log("++++++++++++++++++++++",req.session,"++++++++++++++++++++++++++")
   var newBlog = new blog(req.body);
   newBlog.author = req.session.userId || req.session.passport.user;
   newBlog.save((err) => {

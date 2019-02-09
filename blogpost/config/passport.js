@@ -13,7 +13,7 @@ passport.use(
     {
       clientID: "841143af40190a8945b4",
       clientSecret: "ec0d01683aa097e0628b87dc9e242b4e31002466",
-      callbackURL: "http://localhost:4000/auth/github/callback"
+      callbackURL: "https://blogdiary.herokuapp.com/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
       // console.log(profile)
@@ -36,6 +36,7 @@ passport.use(
     }
   )
 );
+
 // router.get('/auth/github',
 //   passport.authenticate('github'));
 // router.get('/auth/github/callback',

@@ -140,11 +140,12 @@ table {
   }
   .right-anchor {
     display: flex;
-    width: 250px;
+    // width: 250px;
     justify-content: space-between;
     margin-left: 0;
   }
   .user-icon {
+    margin-left: 20px;
     height: 40px;
     width: 40px;
     display: grid;
@@ -156,6 +157,7 @@ table {
     background: #65a568;
   }
   .btn-create {
+    margin-left: 20px;
     border-radius: 3px;
     background: #78a84c;
     padding: 10px;
@@ -198,6 +200,10 @@ table {
     margin-left: 20px;
     float: right;
   }
+}
+.fab {
+  font-size:20px;
+  color: #f44336;
 }
 
 ///user-form

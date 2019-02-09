@@ -9,12 +9,11 @@
           <a href="/detail/<%= blog.slug %>">
             <p>Read more</p>
           </a>
-        </p>
-        
+        </p>     
         <p><i class="fab fa-gratipay"></i><%= blog.likes.length %></p>
         <div class="h-info">
-            <h5><%= moment(blog.date).fromNow() %> </h5>
-            <p>Author:- <%=blog.author.username %></p>
+          <h5><%= moment(blog.date).fromNow() %> </h5>
+          <p>Author:- <%=blog.author.username %></p>
         </div>
         <% if(locals.user){ %>
         <% if(locals.user.id==blog.author.id){ %>
