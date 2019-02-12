@@ -7,18 +7,17 @@ let articleSchema = new Schema({
   title: {type:String},
   description: {type: String},
   body: {type:String},
-  tagList :[],
+  tagList :[{type:String}],
   createdAt : {type:Date, default:Date.now()},
   updatedAt: {type: Date, default: Date.now()},
   favorited: false,
   favoritesCount:{type:Number, default:0},
-  author : [{type:Schema.Types.ObjectId, ref:'User'}]
+  author :[{type:Schema.Types.ObjectId, ref:'User'}]
 });
 
 //apply slug
 articleSchema.pre('save', function(next){
   this.slug = slug(this.title);
-  console.log("=========",this.slug);
   next()
 });
 
