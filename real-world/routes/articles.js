@@ -38,7 +38,7 @@ router.post("/articles", validToken, function(req, res, next) {
 //edit article
 router.put('/articles/:slug', validToken, function(req, res, next){
 	console.log(req.body,"=====")
-	Article.findOneAndUpdate({slug : req.params.slug}, req.body, {new:true}, (err,data)=> {
+	Article.findOneAndUpdate({slug : req.params.slug},(req.body), {new:true}, (err,data)=> {
 		if(err)res.send("not updated")
 		if(!err)res.json({article: req.body})
 	})
