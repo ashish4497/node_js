@@ -12,7 +12,8 @@ let articleSchema = new Schema({
   updatedAt: {type: Date, default: Date.now()},
   favorited: false,
   favoritesCount:{type:Number, default:0},
-  author :[{type:Schema.Types.ObjectId, ref:'User'}]
+  author :[{type:Schema.Types.ObjectId, ref:'User'}],
+  comments:[{type:Schema.Types.ObjectId, ref:'Comment'}]
 });
 
 //apply slug

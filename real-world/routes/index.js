@@ -29,7 +29,7 @@ router.get("/", function(req, res, next) {
 router.post("/api/users", function(req, res) {
 	var newUser = new User(req.body);
 	// console.log(req.body)
-	newUser.save((err) => {
+	newUser.save((err,data) => {
 		if (err) res.send(err);
 		if (!err) res.json({user:req.body});
 	});
@@ -53,6 +53,7 @@ router.post("/api/users/login", function(req, res, next) {
 				});
 			} else {
 				var token = jwt.sign({ username : user.username }, "shhhhh");
+				console.log(user.username,"sdfghjklfghjkghjghjkjk")
 				res.json({token:token});
 			}
 		});

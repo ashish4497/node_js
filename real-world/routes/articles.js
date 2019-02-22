@@ -3,6 +3,7 @@ var router = express.Router();
 var Article = require("../models/article");
 var jwt = require("jsonwebtoken");
 var User = require("../models/user");
+var Comment = require("../models/comment");
 var slug = require('slug');
 
 // create middleware for check token valid or not
@@ -26,7 +27,7 @@ var validToken = (req, res, next) => {
 // })
 
 router.post("/articles", validToken, function(req, res, next) {
-  console.log("++++++");
+  // console.log("++++++");
   var newArticle = new Article(req.body);
   // console.log(req.body, "show articles");
   newArticle.save((err) => {
@@ -37,10 +38,10 @@ router.post("/articles", validToken, function(req, res, next) {
 
 //edit article
 router.put('/articles/:slug', validToken, function(req, res, next){
-	console.log(req.body,"=====")
+  console.log(req.body,"=====")
 	Article.findOneAndUpdate({slug : req.params.slug},(req.body), {new:true}, (err,data)=> {
 		if(err)res.send("not updated")
-		if(!err)res.json({article: req.body})
+		if(!err)res.json({article: req.body});
 	})
 })
 
@@ -51,5 +52,36 @@ router.delete('/articles/:slug', validToken, function(req, res, next){
 		if(!err) res.json("deleted success")
 	})
 })
+
+//create comment
+router.post("/articles/:slug/comments", validToken, function(req, res, next) {
+  // console.log(req.body,"comment section")
+  var newComment = new Comment(req.body);
+  newComment.save((err,comment) => {
+    if(err) res.send(err)
+    else
+Article.findOneAndUpdate({slug: req.params.slug},{$push:{comments :comment._id}},(err,data)=>{
+      if(err)res.send(err)
+      else res.json(newComment);
+    })
+  });
+});
+
+// delete comment
+router.delete('/articles/:slug/comments/:id',  validToken, function(req, res, next) {
+  Article.findByIdAndUpdate({slug: req.params.slug},{$pull :{comments:req.params._id}},(err,data)=>{
+    console.log({_id: req.params.id},"+++++++++++++++++++++++++")
+    if(err) res.send('deleted not success')
+    else res.json('comment delete success')
+  })
+})
+
+// router.delete('/articles/:slug/comments/:id',  validToken, function(req, res, next) {
+//   Article.findOneAndDelete( req.params.id,(err,data)=>{
+//     console.log({_id: req.params.id},"+++++++++++++++++++++++++")
+//     if(err) res.send('deleted not success')
+//     else res.json('comment delete success')
+//   })
+// })
 
 module.exports = router;
